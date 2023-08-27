@@ -5,19 +5,24 @@ import sys
 
 def fizzbuzz(n):
     """
-    FizzBuzz function prints numbers from 1 to n, replacing multiples of 3 with "Fizz",
-    multiples of 5 with "Buzz", and multiples of both 3 and 5 with "FizzBuzz".
+    FizzBuzz function prints numbers from 1 to n separated by a space.
+
+    - For multiples of three print "Fizz" instead of the number and for
+      multiples of five print "Buzz".
+    - For numbers which are multiples of both three and five print "FizzBuzz".
     """
+    tmp_result = []
     for i in range(1, n + 1):
-        if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz", end=" ")
-        elif i % 3 == 0:
-            print("Fizz", end=" ")
-        elif i % 5 == 0:
-            print("Buzz", end=" ")
+        if (i % 3) == 0 and (i % 5) == 0:
+            tmp_result.append("FizzBuzz")
+        elif (i % 3) == 0:
+            tmp_result.append("Fizz")
+        elif (i % 5) == 0:
+            tmp_result.append("Buzz")
         else:
-            print(i, end=" ")
-    print()  # Print a newline after the loop
+            tmp_result.append(str(i))
+    print(" ".join(tmp_result))
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
